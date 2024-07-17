@@ -1,0 +1,44 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Uid:</strong>
+  <%= @parcel_collection.uid %>
+</p>
+
+<p>
+  <strong>Sending parcel:</strong>
+  <%= @parcel_collection.sending_parcel_id %>
+</p>
+
+<p>
+  <strong>Beneficiary identity document type:</strong>
+  <%= @parcel_collection.beneficiary_identity_document_type_id %>
+</p>
+
+<p>
+  <strong>Beneficiary identity document code:</strong>
+  <%= @parcel_collection.beneficiary_identity_document_code %>
+</p>
+
+<p>
+  <strong>Collection:</strong>
+  <%= @parcel_collection.collection %>
+</p>
+
+<p>
+  <strong>Notes:</strong>
+  <%= @parcel_collection.notes %>
+</p>
+
+<p>
+  <strong>Status:</strong>
+  <%= @parcel_collection.status %>
+</p>
+
+<p>
+  <strong>Account:</strong>
+  <%= @parcel_collection.account_id %>
+</p>
+
+<%= link_to 'Edit', edit_parcel_collection_path(@parcel_collection) %> |
+<%= link_to 'Back', parcel_collections_path %>

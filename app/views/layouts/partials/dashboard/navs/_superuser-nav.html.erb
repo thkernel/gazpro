@@ -1,0 +1,167 @@
+<!-- ########## START: LEFT PANEL ########## -->
+
+      <ul class="br-sideleft-menu">
+
+       <li class="br-menu-item">
+          <%= link_to  raw('<i class="fa fa-home tx-20"></i> <span class="menu-item-label">Tableau de bord</span>'), dashboard_path, class: "br-menu-link #{current? "active", dashboard_path}" %>
+        </li><!-- br-menu-item -->
+
+
+        <li class="br-menu-item">
+          <a href="#" class="br-menu-link with-sub">
+
+           <i class="fas fa-shopping-cart tx-20"></i>
+            <span class="menu-item-label">Ventes</span>
+          </a><!-- br-menu-link -->
+          <ul class="br-menu-sub">
+
+            <li class="sub-item">
+                <%= link_to  "Commandes", orders_path, class: "sub-link #{current? "active", orders_path}" %>
+            </li>
+
+           
+           
+
+            
+          </ul>
+        </li>
+
+        <li class="br-menu-item">
+          <%= link_to  raw('<i class="fas fa-pump-soap tx-20"></i> <span class="menu-item-label">Productions</span>'), productions_path, class: "br-menu-link #{current? "active", productions_path}" %>
+        </li><!-- br-menu-item -->
+
+       
+
+        <li class="br-menu-item">
+          <%= link_to  raw('<i class="fas fa-store tx-20"></i> <span class="menu-item-label">Stock/Appro</span>'), stock_entries_path, class: "br-menu-link #{current? "active", stock_entries_path}" %>
+        </li><!-- br-menu-item -->
+
+
+        
+
+         <li class="br-menu-item">
+          <a href="#" class="br-menu-link with-sub">
+            <i class="fa fa-cubes tx-20"></i>
+            <span class="menu-item-label">Produits</span>
+          </a><!-- br-menu-link -->
+          <ul class="br-menu-sub">
+            <li class="sub-item">
+                <%= link_to  "Catégories de produit", product_categories_path, class: "sub-link #{current? "active", product_categories_path}" %>
+            </li>
+
+            
+            <li class="sub-item">
+                <%= link_to  "Produits", products_path, class: "sub-link #{current? "active", products_path}" %>
+            </li>
+            
+          </ul>
+        </li>
+
+        <li class="br-menu-item">
+          <a href="#" class="br-menu-link with-sub">
+            <i class="fa fa-users tx-20"></i>
+            <span class="menu-item-label">Tierces</span>
+          </a><!-- br-menu-link -->
+          <ul class="br-menu-sub">
+            
+            <li class="sub-item">
+                <%= link_to  "Clients", customers_path, class: "sub-link #{current? "active", customers_path}" %>
+            </li>
+             <li class="sub-item">
+                <%= link_to  "Fournisseurs",providers_path, class: "sub-link #{current? "active", providers_path}" %>
+            </li>
+
+            
+
+            
+          </ul>
+        </li>
+
+        
+
+            
+
+        
+        
+
+        <li class="br-menu-item">
+          <a href="#" class="br-menu-link with-sub">
+           <i class="fas fa-table tx-20"></i>
+            <span class="menu-item-label">Journaux</span>
+          </a><!-- br-menu-link -->
+          <ul class="br-menu-sub">
+
+            <li class="sub-item">
+                <%= link_to  "Commandes", history_orders_path, class: "sub-link #{current? "active", history_orders_path}" %>
+            </li>
+
+            <li class="sub-item">
+                <%= link_to  "Productions", history_productions_path, class: "sub-link #{current? "active", history_productions_path}" %>
+            </li>
+
+            <li class="sub-item">
+                <%= link_to  "Entrées de stock", history_stock_entries_path, class: "sub-link #{current? "active", history_stock_entries_path}" %>
+            </li>
+            
+
+            
+          </ul>
+        </li>
+
+
+
+        <li class="br-menu-item">
+          <a href="#" class="br-menu-link with-sub">
+            <i class="fa fa-cog tx-20"></i>
+            <span class="menu-item-label">Paramètres</span>
+          </a><!-- br-menu-link -->
+          <ul class="br-menu-sub">
+
+            <li class="sub-item">
+                <%= link_to  "Fonctionalités", features_path, class: "sub-link #{current? "active", features_path}" %>
+            </li>
+            
+            <li class="sub-item">
+                <%= link_to  "Rôles", roles_path, class: "sub-link #{current? "active", roles_path}" %>
+            </li>
+
+            <li class="sub-item">
+                <%= link_to  "Droits d'accès", permissions_path, class: "sub-link #{current? "active", permissions_path}" %>
+            </li>
+
+            <li class="sub-item">
+                <%= link_to  "Utilisateurs", all_accounts_path, class: "sub-link #{current? "active", all_accounts_path}" %>
+            </li>
+
+            
+
+            <li class="sub-item">
+                <%= link_to  "Pays", countries_path, class: "sub-link #{current? "active", countries_path}" %>
+            </li>
+            
+
+            <li class="sub-item">
+                <%= link_to  "Citernes", tanks_path, class: "sub-link #{current? "active", tanks_path}" %>
+            </li>
+            <li class="sub-item">
+                <%= link_to  "Unités", unities_path, class: "sub-link #{current? "active", unities_path}" %>
+            </li>
+
+           
+
+            
+
+
+          </ul>
+        </li>
+
+
+       
+      </ul><!-- br-sideleft-menu -->
+
+      
+       
+        
+      </div><!-- info-list -->
+
+    <!-- ########## END: LEFT PANEL ########## -->

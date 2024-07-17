@@ -1,0 +1,48 @@
+# == Schema Information
+#
+# Table name: stock_entries
+#
+#  id                   :bigint           not null, primary key
+#  uid                  :string
+#  receipt_date         :datetime
+#  product_id           :bigint           not null
+#  delivery_note_number :string
+#  tank_id              :bigint           not null
+#  driver               :string
+#  origin               :string
+#  quantity             :float            default(0.0)
+#  unity_id             :bigint           not null
+#  description          :text
+#  status               :string
+#  account_id           :bigint           not null
+#  created_at           :datetime         not null
+#  updated_at           :datetime         not null
+#
+
+# Read about fixtures at https://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  uid: MyString
+  receipt_date: 2024-07-13 15:07:19
+  product: one
+  delivery_note_number: MyString
+  tank: one
+  driver: MyString
+  quantity: 1.5
+  unity: one
+  description: MyText
+  status: MyString
+  account: one
+
+two:
+  uid: MyString
+  receipt_date: 2024-07-13 15:07:19
+  product: two
+  delivery_note_number: MyString
+  tank: two
+  driver: MyString
+  quantity: 1.5
+  unity: two
+  description: MyText
+  status: MyString
+  account: two

@@ -1,0 +1,11 @@
+$("ul.errors").html("");
+<% if @tank.errors.any? %>
+  <% @tank.errors.full_messages.each do |message| %>
+ 
+    $("ul.errors").append($('<div class="c-alert c-alert--danger" > ').html("<%= message.html_safe %> "));
+  <% end %>
+<% else %>
+  $(".tanks").html("<%= escape_javascript(render 'index') %>");
+  $("#tank-modal").modal("hide");
+ 
+<% end %>

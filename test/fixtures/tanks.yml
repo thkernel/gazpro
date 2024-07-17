@@ -1,0 +1,41 @@
+# == Schema Information
+#
+# Table name: tanks
+#
+#  id                  :bigint           not null, primary key
+#  uid                 :string
+#  registration_number :string
+#  brand               :string
+#  model               :string
+#  capacity            :float            default(0.0)
+#  unity_id            :bigint           not null
+#  description         :text
+#  status              :string
+#  account_id          :bigint           not null
+#  created_at          :datetime         not null
+#  updated_at          :datetime         not null
+#
+
+# Read about fixtures at https://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  uid: MyString
+  registration_number: MyString
+  brand: MyString
+  model: MyString
+  capacity: 1.5
+  unity: one
+  description: MyText
+  status: MyString
+  account: one
+
+two:
+  uid: MyString
+  registration_number: MyString
+  brand: MyString
+  model: MyString
+  capacity: 1.5
+  unity: two
+  description: MyText
+  status: MyString
+  account: two

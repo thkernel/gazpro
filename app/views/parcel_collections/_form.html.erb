@@ -1,0 +1,36 @@
+<%= form_with(model: parcel_collection, local: false) do |form| %>
+  <div class="modal-body">
+    <ul class="errors"></ul>
+
+    <div class="row">
+      <div class="col-md">
+        <div class="form-group">
+          <%= form.hidden_field :sending_parcel_id %>
+        </div>
+        <div class="form-group">
+          <%= form.label :beneficiary_id_type_id, "Type de pièce", class: "required" %>
+          <%= form.collection_select(:beneficiary_id_type_id, @identity_document_types, :id, :name, {prompt: "Sélectionner"}, class: "form-control ", style: "width: 100%", required: true) %> 
+        </div>
+
+        <div class="form-group">
+          <%= form.label :beneficiary_identity_document_code, "Numéro pièce d'identité", class: "required" %>
+          <%= form.text_field :beneficiary_identity_document_code, class: "form-control", placeholder: "Numéro pièce d'identité", required: true %>
+        </div>
+
+        <div class="form-group">
+          <%= form.label :beneficiary_identity_document, "Copie pièce d'identité", class: "required" %>
+          <%= form.file_field :beneficiary_identity_document, class: "form-control", placeholder: "Copie pièce d'identité", required: true %>
+        </div>
+      </div>
+
+     
+
+      
+
+  </div>
+  <div class="modal-footer">
+    <%= link_to "Annuler", "#", class: "btn btn-secondary waves-effect", data: {dismiss: "modal"} %>
+    <%= form.submit "Valider", class: "btn btn-primary waves-effect waves-light",  "data-loading-text"=>"Loading...", autocomplete: "off" %>
+
+  </div>
+<% end %>

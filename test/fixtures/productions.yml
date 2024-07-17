@@ -1,0 +1,62 @@
+# == Schema Information
+#
+# Table name: productions
+#
+#  id              :bigint           not null, primary key
+#  uid             :string
+#  production_date :datetime
+#  quantity        :float            default(0.0)
+#  b3_number       :float            default(0.0)
+#  b3_tonnage      :float            default(0.0)
+#  b6_number       :float            default(0.0)
+#  b6_tonnage      :float            default(0.0)
+#  b12_number      :float            default(0.0)
+#  b12_tonnage     :float            default(0.0)
+#  b32_number      :float            default(0.0)
+#  b32_tonnage     :float            default(0.0)
+#  b38_number      :float            default(0.0)
+#  b38_tonnage     :float            default(0.0)
+#  total_tonnage   :float            default(0.0)
+#  status          :string
+#  account_id      :bigint           not null
+#  created_at      :datetime         not null
+#  updated_at      :datetime         not null
+#
+
+# Read about fixtures at https://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  uid: MyString
+  production_date: 2024-07-13 15:15:14
+  quantity: 1.5
+  b3_number: 1.5
+  b3_tonnage: MyString
+  b6_number: 1.5
+  b6_tonnage: 1.5
+  b12_number: 1.5
+  b12_tonnage: 1.5
+  b32_number: 1.5
+  b32_tonnage: 1.5
+  b38_number: 1.5
+  b38_tonnage: 1.5
+  total_tonnage: 1.5
+  status: MyString
+  account: one
+
+two:
+  uid: MyString
+  production_date: 2024-07-13 15:15:14
+  quantity: 1.5
+  b3_number: 1.5
+  b3_tonnage: MyString
+  b6_number: 1.5
+  b6_tonnage: 1.5
+  b12_number: 1.5
+  b12_tonnage: 1.5
+  b32_number: 1.5
+  b32_tonnage: 1.5
+  b38_number: 1.5
+  b38_tonnage: 1.5
+  total_tonnage: 1.5
+  status: MyString
+  account: two

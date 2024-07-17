@@ -1,0 +1,180 @@
+
+
+<div class="br-pagebody mg-b-30 mg-t-80">
+  <div class="br-section-wrapper">
+
+    <div class="actions text-center mg-b-10">
+      <button type="button"  onclick="printInvoice2()" class= "btn btn-primary print-invoices">Imprimer</button>
+    </div>
+    
+    <div id="invoice-box" class="invoice-box mt-30 mb-30">
+        
+      <table cellpadding="0" cellspacing="0">
+        <tr class="top">
+          <td colspan="15">
+              <table>
+                  <tr>
+                      <td class="title">
+                        <div class="invoice-logo">
+                            <%= image_pack_tag "logo/logo.jpg", alt: "Logo" %> 
+                          </div>
+                      </td>
+                      
+                      <td>
+                          Référence: <%= @order.uid %><br>
+                          Crée le: <%= "#{@order.created_at.strftime("%d/%m/%Y")} à #{@order.created_at.strftime("%H:%M:%S")}"   %> <br>
+                          Employé: <%= @order.account.login %><br>
+                          
+                          
+                      </td>
+                  </tr>
+              </table>
+          </td>
+        </tr>
+            
+        <tr class="information">
+          <td colspan="15">
+              <table>
+                  <tr>
+                      <td>
+                        <b>
+                          BAMAGAZ<br>
+                          Yirimadio, non loin du stade de 25 Mars<br>
+                          Tél: +223 66 74 77 49<br>
+                          Bamako, MALI
+                        </b>
+                      </td>
+                      
+                      <td>
+                        <b>
+                          <%= @order.customer.customer_name %><br>
+                                
+                                <% if @order.customer.phone %>
+                                  <%= "Tél: #{@order.customer.phone}" %>
+                                <% end %>
+                        </b>
+                      </td>
+                  </tr>
+              </table>
+          </td>
+        </tr>
+
+        <tr class="order-type">
+          <td colspan="15">
+            <div>
+               <center> <h3><b>COMMANDE </b> </h3></center>
+              </div>
+          </td>
+        </tr>
+            
+            
+            
+        <tr class="heading">
+          <td>Date</td>
+        
+          <td>Date com.</td>
+          <td>Transporteur</td>
+          <td>N°BL</td>
+          <td>Entrée B3</td>
+          <td>Entrée B6</td>
+          <td>Entrée B12</td>
+          <td>Entrée B32</td>
+          <td>Entrée B38</td>
+          <td>Sortie B3</td>
+          <td>Sortie B6</td>
+          <td>Sortie B12</td>
+          <td>Sortie B32</td>
+          <td>Sortie B38</td>
+          <td>Tonnage total</td>
+        </tr>
+            
+           
+        <tr class="item">
+          <td><%= @order.created_at.strftime("%d/%m/%Y") %></td>
+     
+        <td><%= @order.order_date.strftime("%d/%m/%Y") %></td>
+      
+        <td><%= @order.transporter %></td>
+        <td><%= @order.delivery_note_number %></td>
+        
+        <td><%= @order.entry_b3 %></td>
+        <td><%= @order.entry_b6 %></td>
+        <td><%= @order.entry_b12 %></td>
+        <td><%= @order.entry_b32 %></td>
+        <td><%= @order.entry_b38 %></td>
+        
+        <td><%= @order.out_b3 %></td>
+        <td><%= @order.out_b6 %></td>
+        <td><%= @order.out_b12 %></td>
+        <td><%= @order.out_b32 %></td>
+        <td><%= @order.out_b38 %></td>
+        <td><%= number_to_currency @order.total_tonnage , unit: "", seperator: ",", delimiter: " " %></td>
+        </tr>
+            
+
+            
+
+            
+            
+           
+          <!--  
+        <tr class="total">
+            <td></td><td></td>
+            <td></td>
+            <td>
+               
+            </td>
+        </tr>-->
+      </table>
+    </div>
+
+  </div>
+
+</div>
+    <script>
+     
+        function printInvoice1() {
+            var divContents = document.getElementById("invoice-box").innerHTML;
+            var a = window.open('', '', 'height=500, width=500');
+
+            
+           
+            a.document.write('<html>');
+            //a.document.write(head);
+           
+            a.document.write('<body>');
+            a.document.write(divContents);
+            a.document.write('</body></html>');
+            a.document.close();
+            a.print();
+        }
+
+        function printInvoice2() {
+            var printContents = document.getElementById("invoice-box").innerHTML;
+            var originalContents = document.body.innerHTML;
+
+            document.body.innerHTML = printContents;
+
+            window.print();
+
+            document.body.innerHTML = originalContents;
+        }
+
+        function printFunc() {
+          var divToPrint = document.getElementById('invoice-box');
+          var htmlToPrint = '' +
+          '<style type="text/css">' +
+          'table th, table td {' +
+          'border:1px solid #000;' +
+          '}' +
+          '</style>';
+          htmlToPrint += divToPrint.outerHTML;
+          newWin = window.open("");
+          newWin.document.write("<h3 align='center'>Print Page</h3>");
+          newWin.document.write(htmlToPrint);
+          newWin.print();
+        newWin.close();
+    }
+
+    </script>
+   

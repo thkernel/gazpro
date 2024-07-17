@@ -1,0 +1,18 @@
+
+<% if current_account.superuser? %>
+    <%= render "dashboard/partials/superuser_dashboard" %>
+<% elsif current_account.admin? %>
+     <%= render "dashboard/partials/superuser_dashboard" %>
+
+
+<% elsif current_account.agent? %>
+    <%= render "dashboard/partials/agent_dashboard" %>
+
+<% elsif current_account.gerant? %>
+    <%= render "dashboard/partials/gerant_dashboard" %>
+
+<% elsif current_account.caissier? %>
+    <%= render "dashboard/partials/caissier_dashboard" %>
+
+<% end %>
+

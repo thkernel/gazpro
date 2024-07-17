@@ -1,0 +1,171 @@
+
+
+<div class="br-pagebody mg-b-30 mg-t-80">
+  <div class="br-section-wrapper">
+
+    <div class="actions text-center mg-b-10">
+      <button type="button"  onclick="printInvoice2()" class= "btn btn-primary print-invoices">Imprimer</button>
+    </div>
+    
+    <div id="invoice-box" class="invoice-box mt-30 mb-30">
+        
+      <table cellpadding="0" cellspacing="0">
+        <tr class="top">
+          <td colspan="15">
+              <table>
+                  <tr>
+                      <td class="title">
+                        <div class="invoice-logo">
+                          	<%= image_pack_tag "logo/logo.jpg", alt: "Logo" %> 
+                          </div>
+                      </td>
+                      
+                      <td>
+                          Référence: <%= @production.uid %><br>
+                          Crée le: <%= "#{@production.created_at.strftime("%d/%m/%Y")} à #{@production.created_at.strftime("%H:%M:%S")}"   %> <br>
+                          Employé: <%= @production.account.login %><br>
+                          
+                          
+                      </td>
+                  </tr>
+              </table>
+          </td>
+        </tr>
+            
+        <tr class="information">
+          <td colspan="4">
+              <table>
+                  <tr>
+                      <td>
+                        <b>
+                          BAMAGAZ<br>
+                          Yirimadio, non loin du stade de 25 Mars<br>
+                          Tél: +223 66 74 77 49<br>
+                          Bamako, MALI
+                        </b>
+                      </td>
+                      
+                      <td>
+                        <b>
+                          
+                        </b>
+                      </td>
+                  </tr>
+              </table>
+          </td>
+        </tr>
+
+        <tr class="order-type">
+          <td colspan="15">
+            <div>
+               <center> <h3><b>FICHE DE PRODUCTION </b> </h3></center>
+              </div>
+          </td>
+        </tr>
+            
+            
+            
+        <tr class="heading">
+          <td>Date</td>
+         
+          <td>Date prod</td>
+
+          <td>Nbre B3</td>
+          <td>Tonnage B3</td>
+          <td>Nbre B6</td>
+          <td>Tonnage B6</td>
+          <td>Nbre B12</td>
+          <td>Tonnage B12</td>
+          <td>Nbre B32</td>
+          <td>Tonnage B32</td>
+          <td>Nbre B38</td>
+          <td>Tonnage B38</td>
+          <td>Tonnage total</td>
+        </tr>
+            
+           
+        <tr class="item">
+          <td><%= @production.created_at.strftime("%d/%m/%Y") %></td>
+          
+          <td><%= @production.production_date.strftime("%d/%m/%Y") %></td>
+
+          <td><%= number_to_currency @production.b3_number, unit: "", seperator: ",", delimiter: " " %></td>
+          <td><%= number_to_currency @production.b3_tonnage, unit: "", seperator: ",", delimiter: " " %></td>
+          <td><%= number_to_currency @production.b6_number , unit: "", seperator: ",", delimiter: " " %></td>
+          <td><%= number_to_currency @production.b6_tonnage, unit: "", seperator: ",", delimiter: " " %></td>
+          <td><%= number_to_currency @production.b12_number, unit: "", seperator: ",", delimiter: " " %></td>
+          <td><%= number_to_currency @production.b12_tonnage, unit: "", seperator: ",", delimiter: " " %></td>
+          <td><%= number_to_currency @production.b32_number, unit: "", seperator: ",", delimiter: " " %></td>
+          <td><%= number_to_currency @production.b32_tonnage, unit: "", seperator: ",", delimiter: " " %></td>
+          <td><%= number_to_currency @production.b38_number, unit: "", seperator: ",", delimiter: " " %></td>
+          <td><%= number_to_currency @production.b38_tonnage, unit: "", seperator: ",", delimiter: " " %></td>
+          <td><%= number_to_currency @production.total_tonnage, unit: "", seperator: ",", delimiter: " " %></td>
+        </tr>
+            
+
+            
+
+            
+            
+           
+          <!--  
+        <tr class="total">
+            <td></td><td></td>
+            <td></td>
+            <td>
+               
+            </td>
+        </tr>-->
+      </table>
+    </div>
+
+  </div>
+
+</div>
+    <script>
+     
+        function printInvoice1() {
+            var divContents = document.getElementById("invoice-box").innerHTML;
+            var a = window.open('', '', 'height=500, width=500');
+
+            
+           
+            a.document.write('<html>');
+            //a.document.write(head);
+           
+            a.document.write('<body>');
+            a.document.write(divContents);
+            a.document.write('</body></html>');
+            a.document.close();
+            a.print();
+        }
+
+        function printInvoice2() {
+            var printContents = document.getElementById("invoice-box").innerHTML;
+            var originalContents = document.body.innerHTML;
+
+            document.body.innerHTML = printContents;
+
+            window.print();
+
+            document.body.innerHTML = originalContents;
+        }
+
+        function printFunc() {
+          var divToPrint = document.getElementById('invoice-box');
+          var htmlToPrint = '' +
+          '<style type="text/css">' +
+          'table th, table td {' +
+          'border:1px solid #000;' +
+          '}' +
+          '</style>';
+          htmlToPrint += divToPrint.outerHTML;
+          newWin = window.open("");
+          newWin.document.write("<h3 align='center'>Print Page</h3>");
+          newWin.document.write(htmlToPrint);
+          newWin.print();
+        newWin.close();
+    }
+
+    </script>
+   

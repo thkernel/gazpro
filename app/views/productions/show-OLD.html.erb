@@ -1,0 +1,165 @@
+
+
+<div class="br-pagebody mg-b-30 mg-t-80">
+    <div class="br-section-wrapper">
+        <div class="actions text-center mg-b-10">
+            <button type="button"  onclick="printInvoice2()" class= "btn btn-primary print-invoices">Imprimer</button>
+        </div>
+        <div id="invoice-box" class="invoice-box mt-30 mb-30">
+            
+            <table cellpadding="0" cellspacing="0">
+                <tr class="top">
+                    
+                                <td class="logo">
+                                  <div class="invoice-logo">
+                                      <%= image_pack_tag "logo/logo.jpg", alt: "Logo" %> 
+                                    </div>
+                                </td>
+                                
+                                <td>
+                                    Référence: <%= @production.uid %><br>
+                                    Crée le: <%= "#{@production.created_at.strftime("%d/%m/%Y")} à #{@production.created_at.strftime("%H:%M:%S")}"   %> <br>
+                                    Employé : <%= @production.account.login %><br>
+                                   
+                                    
+                                </td>
+                         
+                </tr>
+                
+                <tr class="information">
+                    <td>
+                        <table>
+                            <tr>
+                                <td>
+                                  <b>
+                                    BAMAGAZ<br>
+                                    Immeuble Jean Marie Cissé<br>
+                                    Tél: +223 72 11 31 17<br>
+                                    Hamdallaye ACI 2000<br>
+                                    Bamako, MALI
+                                  </b>
+                                </td>
+                                
+                                <td>
+                                  
+                                </td>
+                            </tr>
+                        </table>
+                    </td>
+                </tr>
+
+                <tr class="order-type">
+                  <td >
+                    <div>
+                        <h3><b>FICHE DE PRODUCTION</b> </h3>
+                      </div>
+                  </td>
+                </tr>
+                
+                
+                
+                <tr class="heading">
+                    <th>Date</th>
+                    <th>Réf</th>
+                    <th>Date prod</th>
+                    <th>Quantité</th>
+                    <th>Nbre B3</th>
+                    <th>Tonnage B3</th>
+                    <th>Nbre B6</th>
+                    <th>Tonnage B6</th>
+                    <th>Nbre B12</th>
+                    <th>Tonnage B12</th>
+                    <th>Nbre B32</th>
+                    <th>Tonnage B32</th>
+                    <th>Nbre B38</th>
+                    <th>Tonnage B38</th>
+                    <th>Tonnage total</th>
+                </tr>
+                
+               
+                  <tr class="item">
+                    <td><%= @production.created_at.strftime("%d/%m/%Y") %></td>
+                    <td><%= @production.uid %></td>
+                    <td><%= @production.production_date.strftime("%d/%m/%Y") %></td>
+                    <td><%= @production.quantity %></td>
+                    <td><%= @production.b3_number %></td>
+                    <td><%= @production.b3_tonnage %></td>
+                    <td><%= @production.b6_number %></td>
+                    <td><%= @production.b6_tonnage %></td>
+                    <td><%= @production.b12_number %></td>
+                    <td><%= @production.b12_tonnage %></td>
+                    <td><%= @production.b32_number %></td>
+                    <td><%= @production.b32_tonnage %></td>
+                    <td><%= @production.b38_number %></td>
+                    <td><%= @production.b38_tonnage %></td>
+                    <td><%= @production.total_tonnage %></td>
+                  </tr>
+               
+                
+
+                
+                
+               
+                
+                <tr class="total">
+                    <td></td><td></td>
+                    <td></td>
+                    <td>
+                       Total: <%= "#{number_with_precision(@production.total_tonnage, delimiter: " ", separator: "")} " %>
+                    </td>
+                </tr>
+            </table>
+        </div>
+
+    </div>
+
+</div>
+
+
+    <script>
+     
+        function printInvoice1() {
+            var divContents = document.getElementById("invoice-box").innerHTML;
+            var a = window.open('', '', 'height=500, width=500');
+
+            
+           
+            a.document.write('<html>');
+            //a.document.write(head);
+           
+            a.document.write('<body>');
+            a.document.write(divContents);
+            a.document.write('</body></html>');
+            a.document.close();
+            a.print();
+        }
+
+        function printInvoice2() {
+            var printContents = document.getElementById("invoice-box").innerHTML;
+            var originalContents = document.body.innerHTML;
+
+            document.body.innerHTML = printContents;
+
+            window.print();
+
+            document.body.innerHTML = originalContents;
+        }
+
+        function printFunc() {
+          var divToPrint = document.getElementById('invoice-box');
+          var htmlToPrint = '' +
+          '<style type="text/css">' +
+          'table th, table td {' +
+          'border:1px solid #000;' +
+          '}' +
+          '</style>';
+          htmlToPrint += divToPrint.outerHTML;
+          newWin = window.open("");
+          newWin.document.write("<h3 align='center'>Print Page</h3>");
+          newWin.document.write(htmlToPrint);
+          newWin.print();
+        newWin.close();
+    }
+
+    </script>
+   

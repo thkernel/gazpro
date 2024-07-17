@@ -1,0 +1,59 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Uid:</strong>
+  <%= @stock_entry.uid %>
+</p>
+
+<p>
+  <strong>Receipt date:</strong>
+  <%= @stock_entry.receipt_date %>
+</p>
+
+<p>
+  <strong>Product:</strong>
+  <%= @stock_entry.product_id %>
+</p>
+
+<p>
+  <strong>Delivery note number:</strong>
+  <%= @stock_entry.delivery_note_number %>
+</p>
+
+<p>
+  <strong>Tank:</strong>
+  <%= @stock_entry.tank_id %>
+</p>
+
+<p>
+  <strong>Driver:</strong>
+  <%= @stock_entry.driver %>
+</p>
+
+<p>
+  <strong>Quantity:</strong>
+  <%= @stock_entry.quantity %>
+</p>
+
+<p>
+  <strong>Unity:</strong>
+  <%= @stock_entry.unity_id %>
+</p>
+
+<p>
+  <strong>Description:</strong>
+  <%= @stock_entry.description %>
+</p>
+
+<p>
+  <strong>Status:</strong>
+  <%= @stock_entry.status %>
+</p>
+
+<p>
+  <strong>Account:</strong>
+  <%= @stock_entry.account_id %>
+</p>
+
+<%= link_to 'Edit', edit_stock_entry_path(@stock_entry) %> |
+<%= link_to 'Back', stock_entries_path %>

@@ -1,0 +1,22 @@
+<% @tanks.each do |tank| %>
+      <tr>
+        <td><%= tank.uid %></td>
+        <td><%= tank.registration_number %></td>
+        <td><%= tank.brand %></td>
+        <td><%= tank.model %></td>
+        <td><%= tank.capacity %></td>
+        <td><%= tank.unity.name %></td>
+        <td>
+          <div class="action-buttons">
+          <%= link_to raw('<i class="fa fa-pencil" aria-hidden="true"></i>
+'), edit_tank_path(tank), title: "Modifier", remote: true %>
+
+
+
+
+<%= link_to raw('<i class="far fa-trash-alt" aria-hidden="true"></i>
+'), tank_delete_path(tank), remote: true, title: "Supprimer", class: "delete" %>
+</div>
+</td>
+      </tr>
+    <% end %>

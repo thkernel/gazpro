@@ -1,0 +1,51 @@
+<table id="datatable-default" class="table display responsive nowrap">
+    <thead>
+                            
+      <tr>
+        <th>Date </th>
+      <th>Réf.</th>
+      <th>Date reception</th>
+      <th>Produit</th>
+      <th>N°BL</th>
+      <th>Numéro engin</th>
+      <th>Chauffeur</th>
+      <th>Provennance</th>
+      <th>Quantité</th>
+      
+        
+        
+        
+      </tr>
+                    
+      </thead>
+      <tbody >
+                     
+        <% @stock_entries.each do |stock_entry| %>
+      <tr>
+        <td><%= stock_entry.created_at.strftime("%d/%m/%Y") %></td>
+        <td><%= stock_entry.uid %></td>
+        <td><%= stock_entry.receipt_date.strftime("%d/%m/%Y") %></td>
+        <td><%= stock_entry.product.name %></td>
+        <td><%= stock_entry.delivery_note_number %></td>
+        <td><%= stock_entry.tank.registration_number %></td>
+        <td><%= stock_entry.driver %></td>
+        <td><%= stock_entry.origin %></td>
+        <td><%= number_to_currency stock_entry.quantity, unit: "", seperator: ",", delimiter: " " %></td>
+        
+        
+      
+        
+        
+      </tr>
+    <% end %>
+
+    </tbody>
+    <tfoot class="tfooter">
+        <%= render("search/partials/stock_entries/tfooter") %> 
+      
+    </tfoot>
+</table>
+
+
+  <div id="withdrawal-modal" class="c-modal modal fade" data-backdrop="static"></div>
+                 

@@ -1,0 +1,55 @@
+<div class="col-lg-12">
+  <!-- Due tasks -->
+  <div class="card shadow-base bd-0">
+    <div class="card-header pd-20 bg-transparent">
+      <h6 class="card-title tx-uppercase tx-12 mg-b-0">Dernières productions</h6>
+    </div><!-- card-header -->
+    <table class="table table-responsive mg-b-0 tx-12">
+      <thead>
+        <tr class="tx-10">
+          <th class="pd-y-5">Date</th>
+          <th class="pd-y-5">Réf</th>
+          <th class="pd-y-5">Date prod</th>
+          <th class="pd-y-5">Quantité</th>
+          <th class="pd-y-5">Nbre B3</th>
+          <th class="pd-y-5">Tonnage B3</th>
+          <th class="pd-y-5">Nbre B6</th>
+          <th class="pd-y-5">Tonnage B6</th>
+          <th class="pd-y-5">Nbre B12</th>
+          <th class="pd-y-5">Tonnage B12</th>
+          <th class="pd-y-5">Nbre B32</th>
+          <th class="pd-y-5">Tonnage B32</th>
+          <th class="pd-y-5">Nbre B38</th>
+          <th class="pd-y-5">Tonnage B38</th>
+          <th class="pd-y-5">Tonnage total</th>
+        </tr>
+      </thead>
+      <tbody>
+        <% @latest_productions.each do |production| %>
+          <tr>
+            <td><%= production.created_at.strftime("%d/%m/%Y") %></td>
+            <td><%= production.uid %></td>
+            <td><%= production.production_date.strftime("%d/%m/%Y") %></td>
+            <td><%= production.quantity %></td>
+            <td><%= production.b3_number %></td>
+            <td><%= production.b3_tonnage %></td>
+            <td><%= production.b6_number %></td>
+            <td><%= production.b6_tonnage %></td>
+            <td><%= production.b12_number %></td>
+            <td><%= production.b12_tonnage %></td>
+            <td><%= production.b32_number %></td>
+            <td><%= production.b32_tonnage %></td>
+            <td><%= production.b38_number %></td>
+            <td><%= production.b38_tonnage %></td>
+            <td><%= production.total_tonnage %></td>
+          </tr>
+        <% end %>       
+      </tbody>
+    </table>
+              
+    <div class="card-footer tx-12 pd-y-15 bg-transparent">
+     <!-- <a href=""><i class="fa fa-angle-down mg-r-5"></i>Voir tout</a> -->
+     <%= link_to raw('<i class="fa fa-angle-down mg-r-5"></i>Toutes les productions'), productions_path %>
+    </div><!-- card-footer -->
+  </div>
+</div>

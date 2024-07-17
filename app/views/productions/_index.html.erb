@@ -1,0 +1,33 @@
+<% @productions.each do |production| %>
+      <tr>
+        <td><%= production.created_at.strftime("%d/%m/%Y") %></td>
+        <td><%= production.uid %></td>
+        <td><%= production.production_date.strftime("%d/%m/%Y") %></td>
+        <td><%= number_to_currency production.b3_number , unit: "", seperator: ",", delimiter: " "%></td>
+        <td><%= number_to_currency production.b3_tonnage, unit: "", seperator: ",", delimiter: " " %></td>
+        <td><%= number_to_currency production.b6_number , unit: "", seperator: ",", delimiter: " " %></td>
+        <td><%= number_to_currency production.b6_tonnage, unit: "", seperator: ",", delimiter: " " %></td>
+        <td><%= number_to_currency production.b12_number , unit: "", seperator: ",", delimiter: " " %></td>
+        <td><%= number_to_currency production.b12_tonnage, unit: "", seperator: ",", delimiter: " " %></td>
+        <td><%= number_to_currency production.b32_number , unit: "", seperator: ",", delimiter: " " %></td>
+        <td><%= number_to_currency production.b32_tonnage, unit: "", seperator: ",", delimiter: " " %></td>
+        <td><%= number_to_currency production.b38_number, unit: "", seperator: ",", delimiter: " " %></td>
+        <td><%= number_to_currency production.b38_tonnage, unit: "", seperator: ",", delimiter: " " %></td>
+        <td><%= number_to_currency production.total_tonnage, unit: "", seperator: ",", delimiter: " " %></td>
+        <td>
+          <div class="action-buttons">
+          <%= link_to raw('<i class="fa fa-pencil tx-20" aria-hidden="true"></i>
+'), edit_production_path(production), title: "Modifier", remote: true %>
+
+ <%= link_to raw('<i class="fas fa-receipt tx-20 aria-hidden="true" ></i>
+'), production_path(production), title: "Fiche", remote: false, class: "mg-r-4 mg-l-4" %>
+
+
+
+
+<%= link_to raw('<i class="far fa-trash-alt tx-20" aria-hidden="true"></i>
+'), production_delete_path(production), remote: true, title: "Supprimer", class: "delete" %>
+</div>
+</td>
+      </tr>
+    <% end %>

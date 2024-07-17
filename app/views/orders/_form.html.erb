@@ -1,0 +1,125 @@
+<%= form_with(model: order, local: false) do |form| %>
+  <div class="modal-body">
+     <ul class="errors">
+      </ul>
+
+      <div class="row">
+        <div class="col-md-6">
+          <div class="form-group">
+            <%= form.label :order_date, "Date" , class: "required" %>
+            <%= form.date_field :order_date, class: "form-control" %>
+          </div>
+        </div>
+        <div class="col-md-6">
+          <div class="form-group customSelect">
+            <%= form.label :customer_id, "Client", class: "required" %>
+            <%= form.collection_select(:customer_id, @customers, :id, :full_name, {prompt: "Sélectionner"}, class: "form-control", style: "width: 100%;", required: true) %> 
+          </div>
+        </div>
+        
+        <div class="col-md-6">
+          <div class="form-group">
+            <%= form.label :delivery_note_number , "N°BL"%>
+            <%= form.text_field :delivery_note_number , class: "form-control", placeholder: "N°BL" %>
+          </div>
+        </div>
+        <div class="col-md-6">
+          <div class="form-group">
+            <%= form.label :transporter , "Transporteur", class: "required" %>
+            <%= form.text_field :transporter, class: "form-control", placeholder: "Transporteur", required: true %>
+          </div>
+        </div>
+      </div>
+
+  <fieldset>
+    <legend>Entrée (Bouteilles vides)</legend>
+    <div class="row">
+      <div class="col-md-3">
+        <div class="form-group">
+          <%= form.label :entry_b3, "B3" %>
+          <%= form.number_field :entry_b3, class: "form-control" %>
+        </div>
+      </div>
+      <div class="col-md-3">
+        <div class="form-group">
+          <%= form.label :entry_b6, "B6" %>
+          <%= form.number_field :entry_b6, class: "form-control" %>
+        </div>
+      </div>
+
+      <div class="col-md-2">
+        <div class="form-group">
+          <%= form.label :entry_b12, "B12" %>
+          <%= form.number_field :entry_b12, class: "form-control" %>
+        </div>
+      </div>
+
+      <div class="col-md-2">
+        <div class="form-group">
+          <%= form.label :entry_b32, "B32" %>
+          <%= form.number_field :entry_b32, class: "form-control" %>
+        </div>
+      </div>
+      <div class="col-md-2">
+        <div class="form-group">
+          <%= form.label :entry_b38, "B38" %>
+          <%= form.number_field :entry_b38 , class: "form-control" %>
+        </div>
+      </div>
+    </div>
+  </fieldset>
+
+  <fieldset>
+    <legend>Sortie</legend>
+    <div class="row">
+      <div class="col-md-3">
+        <div class="form-group">
+          <%= form.label :out_b3, "B3" %>
+          <%= form.number_field :out_b3, class: "form-control" %>
+        </div>
+      </div>
+      <div class="col-md-3">
+        <div class="form-group">
+          <%= form.label :out_b6, "B6" %>
+          <%= form.number_field :out_b6, class: "form-control" %>
+        </div>
+      </div>
+
+      <div class="col-md-2">
+        <div class="form-group">
+          <%= form.label :out_b12, "B12" %>
+          <%= form.number_field :out_b12, class: "form-control" %>
+        </div>
+      </div>
+
+      <div class="col-md-2">
+        <div class="form-group">
+          <%= form.label :out_b32, "B32" %>
+          <%= form.number_field :out_b32, class: "form-control" %>
+        </div>
+      </div>
+      <div class="col-md-2">
+        <div class="form-group">
+          <%= form.label :out_b38, "B38" %>
+          <%= form.number_field :out_b38 , class: "form-control" %>
+        </div>
+      </div>
+    </div>
+  </fieldset>
+   
+
+
+ 
+    
+
+
+  
+
+ 
+
+  </div><!-- modal body -->
+  <div class="modal-footer">
+            <%= link_to "Annuler", "#", class: "btn btn-secondary tx-mont tx-medium tx-11 tx-uppercase pd-y-12 pd-x-25 tx-spacing-1", data: {dismiss: "modal"} %>
+            <%= form.submit "Enregistrer", class: "btn btn-primary tx-mont tx-medium tx-11 tx-uppercase pd-y-12 pd-x-25 tx-spacing-1",  "data-loading-text"=>"Loading...", autocomplete: "off" %>
+    </div>
+<% end %>

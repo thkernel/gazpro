@@ -1,0 +1,21 @@
+<% @parcel_collections.each do |parcel_collection| %>
+      <tr>
+        <td><%= parcel_collection.created_at %></td>
+        <td><%= parcel_collection.uid %></td>
+        <td><%= parcel_collection.sending_parcel.uid %></td>
+        
+        <td><%= parcel_collection.status %></td>
+        <td>
+      <div class="action-buttons">
+      <%= link_to raw('<i class="fa fa-pencil" aria-hidden="true"></i>
+'),  edit_parcel_collection_path(parcel_collection), title: "Modifier", remote: true %>
+
+
+
+
+<%= link_to raw('<i class="far fa-trash-alt" aria-hidden="true"></i>
+'), parcel_collection_delete_path(parcel_collection), remote: true, title: "Supprimer", class: "delete" %>
+</div>
+</td>
+      </tr>
+    <% end %>

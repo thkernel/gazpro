@@ -1,0 +1,34 @@
+<div class="br-pageheader mg-30">
+  <nav class="breadcrumb pd-0 mg-0 tx-12">
+    
+    <span class="breadcrumb-item active"><h4>Entrées de stock</h4></span>
+  </nav>
+</div><!-- br-pageheader -->
+<div class="br-pagebody mg-b-30">
+    <div class="br-section-wrapper">   
+        <%= render "search/partials/stock_entries/search-form" %>
+        <center>
+        <%= link_to "Réinitialiser la recherche", history_stock_entries_path() %>
+
+        </center>
+                    
+                
+        
+    
+     
+        </div>  
+</div>
+
+
+<div class="br-pagebody mg-b-30">
+    <div class="br-section-wrapper">   
+        
+           
+                       
+    <%= render "search/partials/stock_entries/results"%>
+               
+        </div>  
+</div>
+
+
+

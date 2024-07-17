@@ -1,0 +1,44 @@
+
+    <div class="row pd-15">
+        <!-- Stats par banques -->
+        <div class="col-md-4">
+            <div class="content">
+                <div class="content-title">
+                    <h5>Quantité partielle </h5>
+                </div>
+                <div class="content-body">
+                    <%= pie_chart @partial_food_chart_pie, messages: {empty: "Pas de données"}, legend: "left", thousands: ".", decimal: ",", library: { plotOptions: { pie: { dataLabels: {enabled: true,
+                format: '<b>{point.y:,.0f}</b><br>{point.percentage:.1f}%'},showInLegend: true}}}, :id => "partial_food_chart_pie", adapter: "highcharts" %>
+                </div>
+
+            </div>
+        </div>
+        <div class="col-md-4">
+            <div class="content">
+                <div class="content-title">
+                    <h5>Quantité pour le personnel </h5>
+                </div>
+                <div class="content-body">
+                    <%= pie_chart @personal_food_chart_pie, messages: {empty: "Pas de données"}, legend: "left", thousands: ".", decimal: ",", library: { plotOptions: { pie: { dataLabels: {enabled: true,
+                format: '<b>{point.y:,.0f}</b><br>{point.percentage:.1f}%'},showInLegend: true}}}, :id => "personal_order_pie", adapter: "highcharts" %>
+                </div>
+
+            </div>
+        </div>
+
+        <!-- Stats par banques -->
+        <div class="col-md-4">
+            <div class="content">
+                <div class="content-title">
+                    <h5>Quantité totale (Gestes commerciaux et personnel y comprisent)</h5>
+                </div>
+                <div class="content-body">
+                    <%= pie_chart @total_food_chart_pie, messages: {empty: "Pas de données"}, legend: "left", thousands: ".", decimal: ",", library: { plotOptions: { pie: { dataLabels: {enabled: true,
+                format: '<b>{point.y:,.0f}</b><br>{point.percentage:.1f}%'},showInLegend: true}}}, :id => "total_food_chart_pie", adapter: "highcharts" %>
+                </div>
+
+            </div>
+        </div>
+        
+    </div>
+

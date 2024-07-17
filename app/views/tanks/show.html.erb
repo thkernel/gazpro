@@ -1,0 +1,49 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Uid:</strong>
+  <%= @tank.uid %>
+</p>
+
+<p>
+  <strong>Registration number:</strong>
+  <%= @tank.registration_number %>
+</p>
+
+<p>
+  <strong>Brand:</strong>
+  <%= @tank.brand %>
+</p>
+
+<p>
+  <strong>Model:</strong>
+  <%= @tank.model %>
+</p>
+
+<p>
+  <strong>Capacity:</strong>
+  <%= @tank.capacity %>
+</p>
+
+<p>
+  <strong>Unity:</strong>
+  <%= @tank.unity_id %>
+</p>
+
+<p>
+  <strong>Description:</strong>
+  <%= @tank.description %>
+</p>
+
+<p>
+  <strong>Status:</strong>
+  <%= @tank.status %>
+</p>
+
+<p>
+  <strong>Account:</strong>
+  <%= @tank.account_id %>
+</p>
+
+<%= link_to 'Edit', edit_tank_path(@tank) %> |
+<%= link_to 'Back', tanks_path %>

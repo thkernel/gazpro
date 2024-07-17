@@ -1,0 +1,74 @@
+<%= form_with(model: production, local: false) do |form| %>
+  <div class="modal-body">
+     <ul class="errors">
+      </ul>
+
+      <div class="row">
+        <div class="col-md-12">
+          <div class="form-group">
+            <%= form.label :production_date , "Date production", class: "required" %>
+            <%= form.date_field :production_date, class: "form-control", required: true %>
+          </div>
+        </div>
+
+        
+      </div>
+
+ 
+  <div class="row">
+    <div class="col-md-12">
+      <div class="form-group">
+        <%= form.label :b3_number, "Nbre B3" %>
+        <%= form.number_field :b3_number, class: "form-control" %>
+      </div>
+    </div>
+    
+
+    <div class="col-md-12">
+      <div class="form-group">
+        <%= form.label :b6_number, "Nbre B6" %>
+        <%= form.number_field :b6_number , class: "form-control" %>
+      </div>
+    </div>
+    
+
+    <div class="col-md-12">
+      <div class="form-group">
+        <%= form.label :b12_number, "Nbre B12" %>
+        <%= form.number_field :b12_number , class: "form-control" %>
+      </div>
+    </div>
+    
+
+    <div class="col-md-12">
+      <div class="form-group">
+        <%= form.label :b32_number , "Nbre B32" %>
+        <%= form.number_field :b32_number , class: "form-control" %>
+      </div>
+    </div>
+
+   
+
+    <div class="col-md-12">
+      <div class="form-group">
+        <%= form.label :b38_number , "Nbre B38" %>
+        <%= form.number_field :b38_number , class: "form-control" %>
+      </div>
+    </div>
+
+    
+
+  </div>
+
+  
+
+  
+
+  
+
+  </div><!-- modal body -->
+  <div class="modal-footer">
+            <%= link_to "Annuler", "#", class: "btn btn-secondary tx-mont tx-medium tx-11 tx-uppercase pd-y-12 pd-x-25 tx-spacing-1", data: {dismiss: "modal"} %>
+            <%= form.submit "Enregistrer", class: "btn btn-primary tx-mont tx-medium tx-11 tx-uppercase pd-y-12 pd-x-25 tx-spacing-1",  "data-loading-text"=>"Loading...", autocomplete: "off" %>
+    </div>
+<% end %>

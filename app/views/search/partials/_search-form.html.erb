@@ -1,0 +1,58 @@
+<div class="search-form">
+    <%= form_with url: search_orders_path, method: :get, local: true, class: "form-inlinee" do |f| %>
+        <div class="row">
+            <% if !shop_tenant? %>
+            <div class="col-md-3">
+              <div class="form-group customSelect">
+                <%= f.label :order_type, "Type" %>
+                <%= f.select(:order_type, ORDER_TYPES,  {prompt: "Sélectionner", selected: (@selected_order_type if @selected_order_type.present?)}, class: "form-control ", style: "width: 100%") %> 
+              </div>
+            </div>
+            <% end %>
+
+            <div class="col-md-3">
+                <div class="form-group">
+                    <%= f.label "Date début" %>
+                    <%= f.date_field :start_date, id: :start_date, class: "form-control ", value: @selected_start_date  %>
+                </div>
+            </div>
+
+            <div class="col-md-3">
+                <div class="form-group">
+                    <%= f.label "Date fin" %>
+                    <%= f.date_field :end_date, id: :end_date, class: "form-control ", value: @selected_end_date  %>
+                </div>
+            </div>
+
+            <div class="col-md-3">
+                <div class="form-group customSelect">
+                    <%= f.label "Caissier/Serveur" %>
+                    <%= f.collection_select(:account, @accounts, :id, :login , {prompt: "Sélectionner", selected: (@selected_account if @selected_account.present?)},class: "form-control") %> 
+                </div>
+            </div>
+            <div class="col-md-3">
+              <div class="form-group customSelect">
+                <%= f.label :payment_method, "Méthode de paiement" %>
+                <%= f.select(:payment_method, PAYMENT_METHODS,  {prompt: "Sélectionner", selected: (@selected_payment_method if @selected_payment_method.present?)}, class: "form-control ", style: "width: 100%") %> 
+              </div>
+            </div>
+                    
+                
+        </div><!-- end row -->
+            
+   
+            
+
+
+        <div class="row">
+            <div class="col-md-12">
+                <div class="form-group search-btn">
+                    <%= f.submit "Rechercher", class: "btn btn-primary btn-block", :id => "search-button" %>
+                </div>
+            </div>
+        </div>
+       
+
+        
+    <% end %>
+</div>

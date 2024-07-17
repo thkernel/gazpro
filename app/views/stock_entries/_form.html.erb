@@ -1,0 +1,70 @@
+<%= form_with(model: stock_entry, local: false) do |form| %>
+  <div class="modal-body">
+     <ul class="errors">
+      </ul>
+
+ 
+
+  <div class="form-group">
+    <%= form.label :receipt_date, "Date reception", class: "required" %>
+    <%= form.date_field :receipt_date, class: "form-control", required: true %>
+  </div>
+
+  <div class="form-group customSelect">
+    <%= form.label :product_id, "Produit", class: "required" %>
+    <%= form.collection_select(:product_id, @products, :id, :name, {prompt: "Sélectionner"}, class: "form-control", style: "width: 100%", required: true) %> 
+
+  </div>
+
+  <div class="form-group">
+    <%= form.label :delivery_note_number, "N°BL" %>
+    <%= form.text_field :delivery_note_number , class: "form-control", placeholder: "N°BL" %>
+  </div>
+
+  <div class="row">
+    <div class="col-md-6">
+
+      <div class="form-group customSelect">
+        <%= form.label :tank_id, "Numéro engin", class: "required" %>
+        <%= form.collection_select(:tank_id, @tanks, :id, :registration_number, {prompt: "Sélectionner"}, class: "form-control", style: "width: 100%", required: true) %> 
+      </div>
+    </div>
+
+    <div class="col-md-6">
+      <div class="form-group">
+        <%= form.label :driver, "Chauffeur" %>
+        <%= form.text_field :driver, class: "form-control", placeholder: "Chauffeur" %>
+      </div>
+    </div>
+  </div>
+
+  <div class="row">
+    <div class="col-md-5">
+      <div class="form-group">
+        <%= form.label :origin, "Provennance", class: "required" %>
+        <%= form.text_field :origin, class: "form-control", placeholder: "Provennance" %>
+      </div>
+    </div>
+    <div class="col-md-4">
+      <div class="form-group">
+        <%= form.label :quantity, "Quantité", class: "required" %>
+        <%= form.number_field :quantity, class: "form-control", placeholder: "Quantité", step: "any", min: "1", required: true %>
+      </div>
+    </div>
+    <div class="col-md-3">
+      <div class="form-group customSelect">
+        <%= form.label :unity_id , "Unité", class: "required" %>
+        <%= form.collection_select(:unity_id, @unities, :id, :name, {prompt: "Sélectionner"}, class: "form-control", style: "width: 100%", required: true) %> 
+      </div>
+    </div>
+  </div>
+
+  
+ 
+
+  </div><!-- modal body -->
+  <div class="modal-footer">
+            <%= link_to "Annuler", "#", class: "btn btn-secondary tx-mont tx-medium tx-11 tx-uppercase pd-y-12 pd-x-25 tx-spacing-1", data: {dismiss: "modal"} %>
+            <%= form.submit "Enregistrer", class: "btn btn-primary tx-mont tx-medium tx-11 tx-uppercase pd-y-12 pd-x-25 tx-spacing-1",  "data-loading-text"=>"Loading...", autocomplete: "off" %>
+    </div>
+<% end %>

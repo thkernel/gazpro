@@ -1,0 +1,49 @@
+<table id="datatable-default" class="table display responsive nowrap">
+    <thead>
+                            
+      <tr>
+        <th>Date</th>
+        <th>Réf</th>
+        <th>Expéditeur</th>
+        <th>Bénéficiaire</th>
+        <th>Statut</th>
+        <th>Actions</th>
+      </tr>
+                    
+      </thead>
+      <tbody >
+                     
+        <% @parcel_collections.each do |parcel_collection| %>
+      <tr>
+        <td><%= parcel_collection.created_at.strftime("%d/%m/%Y") %></td>
+        <td><strong><%= parcel_collection.withdrawal_code %></strong></td>
+        <td><%= parcel_collection.sender_last_name %></td>
+        <td><%= parcel_collection.beneficiary_last_name %></td> 
+        <td><%= "#{number_to_currency parcel_collection.amount_incl_tax, unit: "", seperator: ",", delimiter: " "}"  %></td>
+        
+        <td><%= parcel_collection.status %></td>
+        <td>
+      <div class="action-buttons">
+      
+
+
+
+<% unless parcel_was_withdrawal?(transfer) %>
+<%= link_to raw('<i class="fas fa-sign-out-alt"></i>
+'), new_parcel_collection_path(parcel_collection: transfer), remote: true, title: "Retrait", class: "delete" %>
+<% end %>
+</div>
+</td>
+      </tr>
+    <% end %>
+
+    </tbody>
+    <tfoot class="tfooter">
+        
+      
+    </tfoot>
+</table>
+
+
+  <div id="withdrawal-modal" class="c-modal modal fade" data-backdrop="static"></div>
+                 
