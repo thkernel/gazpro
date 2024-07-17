@@ -6,12 +6,12 @@
 # server "example.com", user: "deploy", roles: %w{app db web}, my_property: :my_value
 # server "example.com", user: "deploy", roles: %w{app web}, other_property: :other_value
 # server "db.example.com", user: "deploy", roles: %w{db}
-set :application, "moneytrans.prod"               # the name of your website - should also be the name of the directory
-set :deploy_to, "/home/thkernel/apps/rails/moneytrans/moneytrans.prod"   # the path to your new deployment directory on the server - by default, the name of the application (e.g. "/var/www/sites/example.com")
+set :application, "gazpro.prod"               # the name of your website - should also be the name of the directory
+set :deploy_to, "/home/factory/apps/rails/gazpro/gazpro.prod"   # the path to your new deployment directory on the server - by default, the name of the application (e.g. "/var/www/sites/example.com")
 set :rails_env, "production"
 
 #server "dgcspayroll.com", user: "root", roles: %w{app db web}, ssh_options: {forward_agent: true}
-server "lmktest.com", user: "root", roles: %w{app db web}, ssh_options: {forward_agent: true}
+server "192.168.88.26", user: "factory", roles: %w{app db web}, ssh_options: {forward_agent: true}
 
 set :branch, "master"
 set :port, 3090
@@ -19,9 +19,9 @@ set :port, 3090
 
 
 
- set :nginx_config_name, "moneytrans.prod"
- set :nginx_server_name, "moneytrans.prod"
- set :puma_workers, 4
+ set :nginx_config_name, "gazpro.prod"
+ set :nginx_server_name, "gazpro.prod"
+ set :puma_workers, 8
 
 # role-based syntax
 # ==================

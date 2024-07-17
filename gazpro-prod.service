@@ -1,0 +1,22 @@
+q[Unit]
+Description=Gazpro prod Puma Server
+After=network.target
+
+[Service]
+Type=simple
+User=factory
+#EnvironmentFile=rvm_version=1.29.4
+Environment=RAILS_ENV=production
+WorkingDirectory=/home/factory/apps/rails/gazpro/gazpro.prod/current/
+#ExecStart=/usr/local/rvm/bin/rvm exec bundle exec puma -C /home/ubuntu/acres-app/current/config/puma.rb
+# Right config ExecStart=/home/ubuntu/.rbenv/bin/rbenv default do bundle exec puma -C /home/ubuntu/acres-app/shared/puma.rb --daemon
+ExecStart=/root/.rbenv/bin/rbenv exec bundle exec puma -C /home/factory/apps/rails/gazpro/gazpro.prod/shared/puma.rb --daemon
+#ExecStop=/root/.rbenv/bin/rbenv exec bundle exec pumactl -F /home/thkernel/apps/rails/dgcs_payroll/dgcs_payroll.prod/shared/puma.rb stop
+#ExecReload=/root/.rbenv/bin/rbenv exec bundle exec pumactl -F /home/thkernel/apps/rails/dgcs_payroll/dgcs_payroll.prod/shared/puma.rb phased-restart
+TimeoutSec=15
+Restart=always
+RestartSec=2
+KillMode=process
+
+[Install]
+WantedBy=multi-user.target
